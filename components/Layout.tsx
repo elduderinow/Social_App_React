@@ -2,9 +2,8 @@ import React from 'react';
 import styles from '../styles/Layout.module.css'
 import Nav from './Nav'
 
-type LayoutProps = {
-    children: React.ReactNode,
-    test: string
+interface LayoutProps  {
+    children: React.ReactNode
 }
 
 function Layout({children}: LayoutProps) {

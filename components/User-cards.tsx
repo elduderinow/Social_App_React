@@ -1,45 +1,59 @@
 import React from 'react';
+import StylesUserCards from '../styles/UserCards.module.css'
+
+interface Geo {
+    lat: string
+    lng: string
+}
+
+interface Address {
+    city: string
+    street: string
+    suite: string
+    zipcode: string
+    geo: Geo
+}
 
 
 interface Person {
-    firstName:string
-    lastName:string
+    name: string
+    address: Address
+    company: object
+    email: string
+    id: number
+    phone: string
+    username: string
+    website: string
 }
+
 
 //diff advanced types
-interface IndexProps  {
-    articles?: Array<Object>
+interface IndexProps {
+    user: Person
     //function -> arrow func waarin je als result en param nog eens een type kan passeren.
-    fn?:(bob:string) => string;
+    fn?: (bob: string) => string;
     //objects
-    obj?:{
-        field1:string
+    obj?: {
+        field1: string
     },
-    person:Person
-    text:string
+    text?: string
 }
 
-function UserCards({articles, fn, obj, person, text}:IndexProps) {
+
+function UserCards({user}: IndexProps) {
     return (
-       <>
-           <h1>User cards</h1>
-           <p>{person?.firstName} {person?.lastName}</p>
-           <p>{text}</p>
-       </>
+        <div className={"col-span-12 sm:col-span-6 md:col-span-4 lg:col-span-3 p-5 bg-gray-200  shadow-md"}>
+            <div className={"wrapper "}>
+                <h1>{user.name}</h1>
+                <p>{user.phone}<br/>
+                    {user.address.street}
+                </p>
+            </div>
+        </div>
     );
 }
 
 export default UserCards;
 
-export const getStaticProps = async () => {
-    const res = await fetch('https://jsonplaceholder.typicode.com/posts?_limit=6')
-    const articles = await res.json()
-
-    return {
-        props: {
-            articles
-        }
-    }
-}
 
 
