@@ -14,7 +14,6 @@ interface Address {
     geo: Geo
 }
 
-
 interface Person {
     name: string
     address: Address
@@ -25,7 +24,6 @@ interface Person {
     username: string
     website: string
 }
-
 
 //diff advanced types
 interface IndexProps {
@@ -39,10 +37,9 @@ interface IndexProps {
     text?: string
 }
 
-
 function UserCards({user}: IndexProps) {
     return (
-        <div className={"col-span-12 sm:col-span-6 md:col-span-4 lg:col-span-3 p-5 bg-gray-200  shadow-md"}>
+        <div className={"col-span-12 sm:col-span-6 md:col-span-4 lg:col-span-3 p-5 bg-gray-50  shadow-md"}>
             <div className={"wrapper "}>
                 <h1>{user.name}</h1>
                 <p>{user.phone}<br/>
