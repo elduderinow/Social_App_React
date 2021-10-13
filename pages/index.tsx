@@ -22,15 +22,20 @@ export const getStaticProps = async () => {
 
 export default function Home(props:any) {
 
+    const user = {
+        id: 99,
+        name: "test@testest.com"
+    }
+
     console.log(props.usersobj)
 
     const globalContext = useContext(GlobalContext)
     const {users} = globalContext
-    const { user, error, isLoading } = useUser();
+    // const { user, error, isLoading } = useUser();
 
-    if (isLoading) return <div>Loading...</div>;
-    if (error) return <div>{error.message}</div>;
-    if (!user) return <Login/>
+    // if (isLoading) return <div>Loading...</div>;
+    // if (error) return <div>{error.message}</div>;
+    // if (!user) return <Login/>
 
     return (
         <>
