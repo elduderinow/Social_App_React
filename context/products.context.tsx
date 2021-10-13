@@ -11,7 +11,7 @@ const products = [
 ]
 
 const ShopState = (props:any) => {
-    const initialState:any = {products:products,cart:[]}
+    const initialState:any = {products:products,cart:[], form:{}}
     const [state, dispatch] = useReducer(shopReducer, initialState)
 
     const addToCart = (product: any) => {
@@ -23,7 +23,11 @@ const ShopState = (props:any) => {
         dispatch({type: "delete", payload: id})
     }
 
-    return <ProductsContext.Provider value={{products:state.products,cart:state.cart, addToCart, deleteCartProduct}}>
+    const updateForm = (data:any) => {
+        dispatch({type: "updateForm", payload: data})
+    }
+
+    return <ProductsContext.Provider value={{products:state.products,cart:state.cart, form:state.form, addToCart, deleteCartProduct, updateForm}}>
             {props.children}
             </ProductsContext.Provider>
 }

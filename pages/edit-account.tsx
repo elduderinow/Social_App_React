@@ -54,19 +54,19 @@ export default function EditAccount() {
             <div className={"p-6 bg-gray-100"}>
                 <h1 className={"text-left mb-4 text-lg capitalize text-gray-400"}>Complete Information</h1>
                 <form onSubmit={sendForm} className={"shadow-md py-5 bg-white rounded-md"}>
-                    <Input value={value} ref={input} type={"text"} text={"First Name"} id={"firstname"}
+                    <Input type={"text"} text={"First Name"} id={"firstname"}
                            placeholder={"John"}/>
-                    <Input value={value} ref={input} type={"text"} text={"Last Name"} id={"lastname"}
+                    <Input type={"text"} text={"Last Name"} id={"lastname"}
                            placeholder={"Doe"}/>
-                    <Input value={value} ref={input} type={"date"} text={"Birthday"} id={"birthday"}
+                    <Input type={"date"} text={"Birthday"} id={"birthday"}
                            placeholder={"date"}/>
-                    <Input value={value} ref={input} type={"email"} text={"Email"} id={"email"}
+                    <Input type={"email"} text={"Email"} id={"email"}
                            placeholder={"John@Doe.com"}/>
-                    <Input value={value} ref={input} type={"text"} text={"Street"} id={"street"}
+                    <Input type={"text"} text={"Street"} id={"street"}
                            placeholder={"Applestreet"}/>
-                    <Input value={value} ref={input} type={"number"} text={"Number"} id={"streetnr"}
+                    <Input type={"number"} text={"Number"} id={"streetnr"}
                            placeholder={"00"}/>
-                    <Input value={value} ref={input} type={"text"} text={"City"} id={"city"} placeholder={"Antwerp"}/>
+                    <Input type={"text"} text={"City"} id={"city"} placeholder={"Antwerp"}/>
                     <button className={"bg-green-700 py-2 px-4 text-white rounded hover:bg-green-800 ml-4"}>Submit
                     </button>
                 </form>

@@ -1,32 +1,26 @@
-import React, {useRef} from 'react';
+import React, {useRef, useContext} from 'react';
+import { ProductsContext } from '../context/products.context';
 import {useInput} from "./useInput";
 
+type inputProps = {
+    text: string,
+    id: string,
+    placeholder: string,
+    type: string,
+}
 
-function Input({text, id, placeholder, type, value}) {
+function Input({text, id, placeholder, type}: inputProps) {
 
-    interface Person {
-        firstname:string,
-        lastname:string,
-        birthday:string,
-        email:string,
-        street:string,
-        streetnr:number,
-        city:string
-    }
+    const productsContext = useContext(ProductsContext)
+    const {form, updateForm} = productsContext
 
-    let initialState:Person = {
-        firstname:"fname",
-        lastname:"lname",
-        birthday:"14/07/1968",
-        email:"email@email.com",
-        street:"streetname",
-        streetnr:88,
-        city:"Anvers"
-    }
-
-    function getVal(e) {
-        value({key:id,value:e})
-        console.log(value)
+    function getVal(value:string) {
+        console.log(form);
+        const data = {
+            [id]: value
+        }
+        
+        updateForm(data)
     }
 
     return (
