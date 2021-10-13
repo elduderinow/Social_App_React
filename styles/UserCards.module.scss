@@ -1,0 +1,31 @@
+.wrapper {
+  @apply p-2;
+  color: gray;
+ &:hover {
+   background-color: #e7e7e7;
+   border-radius:5px;
+   cursor: pointer;
+ }
+
+  .profile {
+    width: 30px;
+    height: 30px;
+    background-color: red;
+    float: left;
+    margin-right: 15px;
+    border-radius: 15px;
+  }
+
+  .info {
+    min-height: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+
+    h1 {
+      color: #1f1f1f;
+    }
+  }
+}
+
+

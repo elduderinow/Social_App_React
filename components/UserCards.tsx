@@ -1,5 +1,5 @@
 import React from 'react';
-import StylesUserCards from '../styles/UserCards.module.css'
+import StylesUserCards from '../styles/UserCards.module.scss'
 
 interface Geo {
     lat: string
@@ -39,14 +39,13 @@ interface IndexProps {
 
 function UserCards({user}: IndexProps) {
     return (
-        <div className={"col-span-12 sm:col-span-6 md:col-span-4 lg:col-span-3 p-5 bg-gray-50  shadow-md"}>
-            <div className={"wrapper "}>
-                <h1>{user.name}</h1>
-                <p>{user.phone}<br/>
-                    {user.address.street}
-                </p>
+        <div className={StylesUserCards.wrapper + " text-sm m-2 text-left"}>
+            <div className={StylesUserCards.profile}/>
+            <div className={StylesUserCards.info}>
+                <h1 className={"name"}>{user.name}</h1>
             </div>
         </div>
+
     );
 }
 
