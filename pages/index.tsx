@@ -32,6 +32,7 @@ export default function Home(props:any) {
     if (error) return <div>{error.message}</div>;
     if (!user) return <Login/>
 
+
     return (
         <>
             <Head>

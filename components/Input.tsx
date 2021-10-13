@@ -1,33 +1,12 @@
 import React, {useRef} from 'react';
-import {useInput} from "./useInput";
 
 
 function Input({text, id, placeholder, type, value}) {
 
-    interface Person {
-        firstname:string,
-        lastname:string,
-        birthday:string,
-        email:string,
-        street:string,
-        streetnr:number,
-        city:string
-    }
-
-    let initialState:Person = {
-        firstname:"fname",
-        lastname:"lname",
-        birthday:"14/07/1968",
-        email:"email@email.com",
-        street:"streetname",
-        streetnr:88,
-        city:"Anvers"
-    }
-
     function getVal(e) {
-        value({key:id,value:e})
-        console.log(value)
+        value({[id]:e})
     }
+
 
     return (
        <>
