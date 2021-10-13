@@ -1,8 +1,8 @@
 import React, {createContext, useReducer} from "react";
-import shopReducer from './shopReducer';
+import shopReducer from './GlobalReducer';
 import {GlobalContext} from './createContext'
 
-const UserState = (props:any) => {
+const UserState = (props: any) => {
 
     let users = [
         {
@@ -236,15 +236,21 @@ const UserState = (props:any) => {
             }
         }
     ]
-    //  const initialState: any = {products: products, cart: []}
-    //  const [state, dispatch] = useReducer(shopReducer, initialState)
 
+    const initialState: any = {form: {}}
+    const [state, dispatch] = useReducer(shopReducer, initialState)
 
-    return <GlobalContext.Provider value={{users}}>
+    const updateForm = (data: any) => {
+        dispatch({type: "updateForm", payload: data})
+    }
+
+    return <GlobalContext.Provider value={{users, form: state.form, updateForm}}>
         {props.children}
     </GlobalContext.Provider>
 }
 
 export default UserState
+
+
 
 

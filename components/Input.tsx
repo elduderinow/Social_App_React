@@ -1,12 +1,24 @@
-import React, {useRef} from 'react';
+import React, {useContext} from 'react';
+import { GlobalContext } from '../context/createContext'
 
+type inputProps = {
+    text: string,
+    id: string,
+    placeholder: string,
+    type: string,
+}
 
-function Input({text, id, placeholder, type, value}) {
+function Input({text, id, placeholder, type}:inputProps) {
 
-    function getVal(e) {
-        value({[id]:e})
+    const globalContext = useContext(GlobalContext)
+    const {updateForm}:any = globalContext
+
+    function getVal(value:string) {
+        const data = {
+            [id]: value
+        }
+        updateForm(data)
     }
-
 
     return (
        <>
