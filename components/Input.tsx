@@ -14,12 +14,12 @@ function Input({ text, id, placeholder, type }: inputProps) {
   const { form, updateForm } = productsContext;
 
   function getVal(value: string) {
-    console.log(form);
     const data = {
       [id]: value,
     };
 
     updateForm(data);
+    console.log(form);
   }
 
   return (
