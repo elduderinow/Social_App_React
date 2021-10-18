@@ -1,51 +1,40 @@
 import React from 'react';
 import StylesUserCards from '../styles/UserCards.module.scss'
+import Image from 'next/image'
 
-interface Geo {
-    lat: string
-    lng: string
+interface Person_detail {
+    type:string,
+    required:boolean
 }
 
-interface Address {
-    city: string
-    street: string
-    suite: string
-    zipcode: string
-    geo: Geo
-}
 
 interface Person {
-    name: string
-    address: Address
-    company: object
-    email: string
-    id: number
-    phone: string
-    username: string
-    website: string
+    firstName: Person_detail,
+    lastName:Person_detail,
+    picture:string
 }
 
-//diff advanced types
 interface IndexProps {
-    user: Person
-    //function -> arrow func waarin je als result en param nog eens een type kan passeren.
-    fn?: (bob: string) => string;
-    //objects
-    obj?: {
-        field1: string
-    },
-    text?: string
+    person: Person
 }
 
-function UserCards({user}: IndexProps) {
+interface Loader {
+    src:string
+}
+
+const myLoader = ({src}:Loader) => {
+   return `${src}`
+}
+function UserCards({person}:IndexProps) {
     return (
         <div className={StylesUserCards.wrapper + " text-sm m-2 text-left"}>
-            <div className={StylesUserCards.profile}/>
+            <div className={StylesUserCards.profile}>
+                {/*<Image loader={myLoader} src={person.picture} alt="Picture of the author" width={500} height={500}/>*/}
+            </div>
             <div className={StylesUserCards.info}>
-                <h1 className={"name"}>{user.name}</h1>
+                <h1 className={"name"}>{person.firstName.type} {person.lastName.type}</h1>
             </div>
         </div>
-
     );
 }
 
